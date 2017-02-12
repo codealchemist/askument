@@ -3,7 +3,7 @@ const ask = require('just-ask')
 
 /**
  * Returns requested param in a promise.
- * If param is set in passed params collection resolves to that vlaue.
+ * If param is set in passed params collection resolves to that value.
  * Otherwise, asks the user for it.
  * Question can be ommited passing param name and params collection only.
  * When question is ommited it defaults to `${name}?`.
@@ -12,23 +12,24 @@ const ask = require('just-ask')
  *
  * - Will ask for missing param 'id':
  * const params = {}
- * get({name: 'id', question: 'Provide an ID:', params}) // asks: Provide an ID:
+ * get('id', 'Provide an ID:', params) // asks: Provide an ID:
  *
  * - Will ask default question for missing param 'id':
  * const params = {}
- * get({name: 'id', params}) // asks: id?
+ * get('id', params) // asks: id?
  *
  * - Will resolve to existing value without asking:
  * const params = {id: 'xer389i9ads8'}
- * get({name: 'id', question: 'Provide an ID:', params}) // doesn't ask, resolves to 'xer389i9ads8'
+ * get('id', 'Provide an ID:', params) // doesn't ask, resolves to 'xer389i9ads8'
  *
- * @param  {string} options.name Parameter name.
- * @param  {string} options.question Optional.
- * @param  {object} options.params
+ * @param  {string} name Parameter name.
+ * @param  {string} question Optional.
+ * @param  {object} args Params collection.
  * @return {promise}
  */
-function get ({name, question, params}){
-  // Support name and params without question.
+function get (name, question, params){
+  // Support passing name and params without question.
+  // Set default question.
   if (typeof question === 'object') {
     params = JSON.parse(JSON.stringify(question))
     question = `${name}?`
