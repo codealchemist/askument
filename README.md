@@ -40,6 +40,31 @@ askument('id', args).then((id) => {
 })
 ```
 
+## Resolving multiple arguments
+
+When you want to get multiple arguments you need to ensure they run in series because you can't read from the command line more than once at a time.
+Luckily for us there's [p-series](https://github.com/sindresorhus/p-series), a good friend of `askument`, which will help us get each argument in series.
+
+Example:
+
+```
+const promises = [
+  () => askument('id', args),
+  () => askument('range', args),
+  () => askument('title', args)
+]
+
+// Ensure we get required arguments resolving promises in series.
+series(promises).then((results) => {
+  const id = results[0]
+  const range = results[1]
+  const title = results[2]
+  console.log('- Provided ID:', id)
+  console.log('- Provided Range:', range)
+  console.log('- Provided Title:', title)
+})
+```
+
 ## Why?
 
 I wanted a dead simple way to ensure an argument is provided letting
