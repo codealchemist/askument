@@ -1,6 +1,6 @@
 {
   "name": "askument",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "If argument is not present ask for it. Returns a promise.",
   "main": "index.js",
   "scripts": {
