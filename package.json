@@ -1,0 +1,27 @@
+{
+  "name": "askument",
+  "version": "1.0.0",
+  "description": "If argument is not present ask for it. Returns a promise.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codealchemist/askument.git"
+  },
+  "keywords": [
+    "argument",
+    "ask",
+    "promise"
+  ],
+  "author": "Alberto Miranda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codealchemist/askument/issues"
+  },
+  "homepage": "https://github.com/codealchemist/askument#readme",
+  "dependencies": {
+    "just-ask": "^1.0.0"
+  }
+}
